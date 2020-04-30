@@ -5,26 +5,26 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
   
   
-  <link rel="shortcut icon" href="img/favicon.ico">
-  <title>farmOS 2.0.x</title>
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Automated tests - farmOS 2.0.x</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="css/theme.css" />
-  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "farmOS";
-    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_name = "Automated tests";
+    var mkdocs_page_input_path = "development/tests.md";
     var mkdocs_page_url = null;
   </script>
   
-  <script src="js/jquery-2.1.1.min.js" defer></script>
-  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
@@ -38,32 +38,32 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> farmOS 2.0.x</a>
+        <a href="../.." class="icon icon-home"> farmOS 2.0.x</a>
         <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href=".">farmOS</a>
-    <ul class="current">
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">farmOS</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Development</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="development/">Getting started</a>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../">Getting started</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="development/drush/">Drush</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../drush/">Drush</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="development/composer/">Composer</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../composer/">Composer</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="development/debug/">Debugging</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../debug/">Debugging</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="development/tests/">Automated tests</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Automated tests</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -75,7 +75,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">farmOS 2.0.x</a>
+        <a href="../..">farmOS 2.0.x</a>
       </nav>
 
       
@@ -83,11 +83,15 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
+    <li><a href="../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Development &raquo;</li>
+        
+      
     
-    <li>farmOS</li>
+    <li>Automated tests</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -98,11 +102,17 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="farmos-20x">farmOS 2.0.x</h1>
-<p><strong>ATTENTION: This documentation is for the UNSTABLE 2.0.x branch of farmOS,
-which is under active development. If you want to use farmOS, the recommended
-stable branch is 7.x-1.x. Current documentation for 7.x-1.x is available at
-<a href="https://farmOS.org">http://farmOS.org</a>.</strong></p>
+                <h1 id="automated-tests">Automated tests</h1>
+<p>The farmOS development Docker image comes pre-installed with all the
+dependencies necessary for running automated tests via
+<a href="https://phpunit.de">PHPUnit</a>.</p>
+<p>The following command will run all automated tests provided by farmOS:</p>
+<pre><code>sudo docker exec -it -u www-data farmos_www_1 vendor/bin/phpunit --verbose --debug --group farm
+</code></pre>
+<p>Tests from other projects/dependencies can be run in a similar fashion. For
+example, the following command will run all tests in the Log module:</p>
+<pre><code>sudo docker exec -it -u www-data farmos_www_1 vendor/bin/phpunit --verbose --debug --group Log
+</code></pre>
               
             </div>
           </div>
@@ -110,8 +120,8 @@ stable branch is 7.x-1.x. Current documentation for 7.x-1.x is available at
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="development/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
       
+        <a href="../debug/" class="btn btn-neutral" title="Debugging"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -137,14 +147,14 @@ stable branch is 7.x-1.x. Current documentation for 7.x-1.x is available at
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
+        <span><a href="../debug/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-        <span style="margin-left: 15px"><a href="development/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
@@ -153,8 +163,3 @@ stable branch is 7.x-1.x. Current documentation for 7.x-1.x is available at
 
 </body>
 </html>
-
-<!--
-MkDocs version : 1.1
-Build Date UTC : 2020-04-30 17:28:02
--->
