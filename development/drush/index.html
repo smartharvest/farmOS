@@ -119,10 +119,10 @@ a Drupal installation.</p>
 <h2 id="running-drush-in-docker">Running Drush in Docker</h2>
 <p>In order to run the <code>drush</code> command, you must use <code>docker exec</code> to run the
 command inside the farmOS container.</p>
-<pre><code>sudo docker exec -it farmos_www_1 vendor/bin/drush
+<pre><code>sudo docker exec -it -u www-data farmos_www_1 vendor/bin/drush
 </code></pre>
 <p>For example, the following will run the <code>drush cr</code> command to rebuild caches:</p>
-<pre><code>sudo docker exec -it farmos_www_1 vendor/bin/drush cr
+<pre><code>sudo docker exec -it -u www-data farmos_www_1 vendor/bin/drush cr
 </code></pre>
 <h2 id="useful-commands">Useful commands</h2>
 <p>Some useful Drush commands are documented here.</p>

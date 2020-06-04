@@ -118,10 +118,10 @@
 <h2 id="running-composer-in-docker">Running Composer in Docker</h2>
 <p>In order to run the <code>composer</code> command, you must use <code>docker exec</code> to run the
 command inside the farmOS container.</p>
-<pre><code>sudo docker exec -it -e COMPOSER_MEMORY_LIMIT=-1 farmos_www_1 composer
+<pre><code>sudo docker exec -it -u www-data -e COMPOSER_MEMORY_LIMIT=-1 farmos_www_1 composer
 </code></pre>
 <p>For example, the following will run the <code>composer update</code> command:</p>
-<pre><code>sudo docker exec -it -e COMPOSER_MEMORY_LIMIT=-1 farmos_www_1 composer update
+<pre><code>sudo docker exec -it -u www-data -e COMPOSER_MEMORY_LIMIT=-1 farmos_www_1 composer update
 </code></pre>
 <h2 id="common-tasks">Common tasks</h2>
 <p>Some common Composer tasks are documented here.</p>
