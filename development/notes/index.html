@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Debugging - farmOS 2.x</title>
+  <title>Notes - farmOS 2.x</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Debugging";
-    var mkdocs_page_input_path = "development/debug.md";
+    var mkdocs_page_name = "Notes";
+    var mkdocs_page_input_path = "development/notes.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,13 +59,15 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../composer/">Composer</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Debugging</a>
-    <ul class="current">
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../debug/">Debugging</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../tests/">Automated tests</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../notes/">Notes</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Notes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#docker-build-arguments">Docker build arguments</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -93,7 +95,7 @@
         
       
     
-    <li>Debugging</li>
+    <li>Notes</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -104,24 +106,39 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="debugging">Debugging</h1>
-<p>The farmOS development Docker image comes pre-installed with
-<a href="https://xdebug.org">XDebug</a>. In order to connect to it, the <code>XDEBUG_CONFIG</code>
-environment variable must be used to configure XDebug's <code>remote_host</code> setting
-with the Docker container's "Gateway" IP address.</p>
-<p>With the containers running, this command will print the gateway IP:</p>
-<pre><code>sudo docker inspect farmos_www_1 | grep -o '"Gateway": ".*\..*\..*\..*"'
-</code></pre>
-<p>Edit <code>docker-compose.yml</code> and enter the gateway IP in the <code>XDEBUG_CONFIG</code>
-environment variable. For example:</p>
-<pre><code>environment:
-  XDEBUG_CONFIG: remote_host=192.168.128.1
-</code></pre>
-<p>Restart the Docker containers for this change to take affect.</p>
-<pre><code>sudo docker-compose restart
-</code></pre>
-<p><strong>Note</strong>: If the Docker containers are removed and recreated, the IP address
-may change, and you will need to repeat these steps to reconfigure it.</p>
+                <h1 id="development-notes">Development notes</h1>
+<h2 id="docker-build-arguments">Docker build arguments</h2>
+<p>The farmOS <code>dev</code> Docker image allows certain variables to be overridden at
+image build time using the <code>--build-arg</code> parameter of <code>docker build</code>.</p>
+<p>Available arguments and their default values are described below:</p>
+<ul>
+<li><code>FARMOS_REPO</code> - The farmOS Git repository URL.<ul>
+<li>Default: <code>https://github.com/farmOS/farmOS.git</code></li>
+</ul>
+</li>
+<li><code>FARMOS_VERSION</code> - The farmOS Git branch/tag/commit to check out.<ul>
+<li>Default: <code>2.x</code></li>
+</ul>
+</li>
+<li><code>PROJECT_REPO</code> - The farmOS Composer project Git repository URL.<ul>
+<li>Default: <code>https://github.com/farmOS/composer-project.git</code></li>
+</ul>
+</li>
+<li><code>PROJECT_VERSION</code> - The farmOS Composer project Git branch/tag/commit to
+  check out.<ul>
+<li>Default: <code>2.x</code></li>
+</ul>
+</li>
+<li><code>WWW_DATA_ID</code> - The ID to use for the <code>www-data</code> user and group inside the
+   image. Setting this to the ID of the developer's user on the host machine
+   allows Composer to create files owned by www-data inside the container,
+   while keeping those files editable by the developer outside of the
+   container. If your user ID is not <code>1000</code>, build the image with:
+   <code>--build-arg WWW_DATA_ID=$(id -u)</code><ul>
+<li>Default: <code>1000</code></li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>
@@ -129,10 +146,8 @@ may change, and you will need to repeat these steps to reconfigure it.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tests/" class="btn btn-neutral float-right" title="Automated tests">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../composer/" class="btn btn-neutral" title="Composer"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../tests/" class="btn btn-neutral" title="Automated tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -158,10 +173,8 @@ may change, and you will need to repeat these steps to reconfigure it.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../composer/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../tests/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../tests/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
