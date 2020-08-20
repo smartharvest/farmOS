@@ -109,11 +109,11 @@
 dependencies necessary for running automated tests via
 <a href="https://phpunit.de">PHPUnit</a>.</p>
 <p>The following command will run all automated tests provided by farmOS:</p>
-<pre><code>sudo docker exec -it -u www-data farmos_www_1 vendor/bin/phpunit --verbose --debug --group farm
+<pre><code>sudo docker exec -it -u www-data farmos_www_1 phpunit --verbose --debug --group farm
 </code></pre>
 <p>Tests from other projects/dependencies can be run in a similar fashion. For
 example, the following command will run all tests in the Log module:</p>
-<pre><code>sudo docker exec -it -u www-data farmos_www_1 vendor/bin/phpunit --verbose --debug --group Log
+<pre><code>sudo docker exec -it -u www-data farmos_www_1 phpunit --verbose --debug --group Log
 </code></pre>
               
             </div>
