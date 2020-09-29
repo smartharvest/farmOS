@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Notes - farmOS 2.x</title>
+  <title>Docker - farmOS 2.x</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Notes";
-    var mkdocs_page_input_path = "development/notes.md";
+    var mkdocs_page_name = "Docker";
+    var mkdocs_page_input_path = "development/docker.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -51,9 +51,24 @@
                     <li class="toctree-l1"><a class="reference internal" href="../..">farmOS</a>
                     </li>
                 </ul>
+                <p class="caption"><span class="caption-text">API</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/">Introduction</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/changes/">Changes</a>
+                    </li>
+                </ul>
                 <p class="caption"><span class="caption-text">Development</span></p>
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../">Getting started</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Docker</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#docker-build-arguments">Docker build arguments</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../postgresql/">PostgreSQL</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../drush/">Drush</a>
                     </li>
@@ -63,11 +78,7 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../tests/">Automated tests</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Notes</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#docker-build-arguments">Docker build arguments</a>
-    </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../code/">Coding standards</a>
                     </li>
                 </ul>
       </div>
@@ -95,7 +106,7 @@
         
       
     
-    <li>Notes</li>
+    <li>Docker</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -106,9 +117,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="development-notes">Development notes</h1>
+                <h1 id="docker">Docker</h1>
 <h2 id="docker-build-arguments">Docker build arguments</h2>
-<p>The farmOS <code>dev</code> Docker image allows certain variables to be overridden at
+<p>The farmOS Docker images allow certain variables to be overridden at
 image build time using the <code>--build-arg</code> parameter of <code>docker build</code>.</p>
 <p>Available arguments and their default values are described below:</p>
 <ul>
@@ -129,6 +140,9 @@ image build time using the <code>--build-arg</code> parameter of <code>docker bu
 <li>Default: <code>2.x</code></li>
 </ul>
 </li>
+</ul>
+<p>The <code>2.x-dev</code> image also provides the following:</p>
+<ul>
 <li><code>WWW_DATA_ID</code> - The ID to use for the <code>www-data</code> user and group inside the
    image. Setting this to the ID of the developer's user on the host machine
    allows Composer to create files owned by www-data inside the container,
@@ -146,8 +160,10 @@ image build time using the <code>--build-arg</code> parameter of <code>docker bu
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../postgresql/" class="btn btn-neutral float-right" title="PostgreSQL">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../tests/" class="btn btn-neutral" title="Automated tests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -173,8 +189,10 @@ image build time using the <code>--build-arg</code> parameter of <code>docker bu
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../tests/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../postgresql/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
