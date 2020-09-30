@@ -81,6 +81,8 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -146,6 +148,18 @@
 </code></pre>
 </li>
 </ol>
+<h2 id="limitations">Limitations</h2>
+<p>The farmOS migration code is designed to migrate a <em>default</em> farmOS 1.x
+database to 2.x. If any customizations have been made on top of the defaults,
+they will not be migrated.</p>
+<p>This includes (but is not limited to):</p>
+<ul>
+<li>Custom asset, entity, taxonomies, and log types</li>
+<li>Custom fields</li>
+<li>Custom roles</li>
+</ul>
+<p>If you maintain a contrib/custom module for farmOS 1.x, it is your
+responsibility to update the modules for 2.x and provide migration logic.</p>
               
             </div>
           </div>
