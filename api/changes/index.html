@@ -61,6 +61,8 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#endpoints">Endpoints</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#jsonschema">JSON:Schema</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#ids">IDs</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#logs">Logs</a>
@@ -135,24 +137,35 @@
               
                 <h1 id="api-changes">API Changes</h1>
 <h2 id="2x-vs-1x">2.x vs 1.x</h2>
-<h3 id="endpoints">Endpoints</h3>
 <p>farmOS 1.x used the <a href="https://drupal.org/project/restws">RESTful Web Services</a>
-module. This provided API endpoints for each entity type at
-<code>/[entity_type].json</code>.</p>
+module, which provided API endpoints for each entity type (asset, log, taxonomy
+term, etc).</p>
 <p>farmOS 2.x uses the new JSON:API module included with Drupal core, which
 follows the <a href="https://jsonapi.org/">JSON:API</a> specification for defining API
-resources. The root endpoint is now <code>/api</code>.</p>
-<p>Within the <code>/api</code> endpoint is a <code>links</code> object with information about all
-the available resource types and their endpoints. Typically these follow a URL
-pattern of <code>/[entity-type]/[bundle]</code>.</p>
-<p>For example, to access a list of Activity logs:</p>
+resources.</p>
+<h3 id="endpoints">Endpoints</h3>
+<p>In farmOS 1.x, API endpoints for each entity type were available at
+<code>/[entity_type].json</code>.</p>
+<p>For example: <code>/log.json</code></p>
+<p>In farmOS 1.x, a root <code>/api</code> endpoint is provided, with a <code>links</code> object that
+describes all the available resource types and their endpoints. These follow
+a URL pattern of <code>/api/[entity-type]/[bundle]</code>.</p>
+<p>For example: <code>/api/log/activity</code></p>
+<p>"Bundles" are "sub-types" that can have different sets (bundles) of fields on
+them. For example, a "Seeding Log" and a "Harvest Log" will collect different
+information, but both are "Logs" (events).</p>
+<p>To illustrate the difference between 1.x and 2.x, here are the endpoints for
+retrieving all Activity logs.</p>
 <ul>
 <li>farmOS 1.x: <code>/log.json?type=farm_activity</code></li>
 <li>farmOS 2.x: <code>/api/log/activity</code></li>
 </ul>
+<h3 id="jsonschema">JSON:Schema</h3>
 <p>farmOS 2.x also provides <a href="https://json-schema.org/">JSON Schema</a> information
 about all available resources. The root endpoint for schema information is
 <code>/api/schema</code>.</p>
+<p>In farmOS 1.x, the <code>/farm.json</code> endpoint provided similar information in the
+<code>resources</code> property. This has been removed in favor of JSON Schema.</p>
 <h3 id="ids">IDs</h3>
 <p>farmOS 2.x assigns
 <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUIDs</a>
