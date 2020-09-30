@@ -59,11 +59,15 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#2x-vs-1x">2.x vs 1.x</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#json-schema">JSON Schema</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#endpoints">Endpoints</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#jsonschema">JSON:Schema</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#ids">IDs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#record-structure">Record structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#filtering">Filtering</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#logs">Logs</a>
         <ul>
@@ -97,6 +101,11 @@
                     <li class="toctree-l1"><a class="reference internal" href="../../development/tests/">Automated tests</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../development/code/">Coding standards</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Migration</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../migration/">Overview</a>
                     </li>
                 </ul>
       </div>
@@ -143,6 +152,13 @@ term, etc).</p>
 <p>farmOS 2.x uses the new JSON:API module included with Drupal core, which
 follows the <a href="https://jsonapi.org/">JSON:API</a> specification for defining API
 resources.</p>
+<p>The root API endpoint is <code>/api</code>.</p>
+<h3 id="json-schema">JSON Schema</h3>
+<p>farmOS 2.x also provides <a href="https://json-schema.org/">JSON Schema</a> information
+about all available resources. The root endpoint for schema information is
+<code>/api/schema</code>.</p>
+<p>In farmOS 1.x, the <code>/farm.json</code> endpoint provided similar information in the
+<code>resources</code> property. This has been removed in favor of JSON Schema.</p>
 <h3 id="endpoints">Endpoints</h3>
 <p>In farmOS 1.x, API endpoints for each entity type were available at
 <code>/[entity_type].json</code>.</p>
@@ -160,12 +176,6 @@ retrieving all Activity logs.</p>
 <li>farmOS 1.x: <code>/log.json?type=farm_activity</code></li>
 <li>farmOS 2.x: <code>/api/log/activity</code></li>
 </ul>
-<h3 id="jsonschema">JSON:Schema</h3>
-<p>farmOS 2.x also provides <a href="https://json-schema.org/">JSON Schema</a> information
-about all available resources. The root endpoint for schema information is
-<code>/api/schema</code>.</p>
-<p>In farmOS 1.x, the <code>/farm.json</code> endpoint provided similar information in the
-<code>resources</code> property. This has been removed in favor of JSON Schema.</p>
 <h3 id="ids">IDs</h3>
 <p>farmOS 2.x assigns
 <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">UUIDs</a>
@@ -178,6 +188,58 @@ whereas the old IDs were not.</p>
 integrate should use the new UUIDs instead.</p>
 <p>Also note that the migration from farmOS 1.x to 2.x does not preserve the
 internal integer IDs, so they may be different after migrating to 2.x.</p>
+<h3 id="record-structure">Record structure</h3>
+<p>JSON:API has some rules about how records are structured that differ from
+farmOS 1.x. These rules make the API more explicit.</p>
+<p>In farmOS 1.x, all the fields/properties of a record were on the same level.</p>
+<p>For example, a simple observation log looked like this:</p>
+<pre><code>{
+    &quot;id&quot;: &quot;5&quot;
+    &quot;type&quot;: &quot;farm_observation&quot;,
+    &quot;name&quot;: &quot;Test observation&quot;,
+    &quot;timestamp&quot;: &quot;1526584271&quot;,
+    &quot;asset&quot;: [
+      {
+        &quot;resource&quot;: &quot;farm_asset&quot;,
+        &quot;id&quot;: &quot;123&quot;
+      }
+    ]
+}
+</code></pre>
+
+<p>In farmOS 2.x, JSON:API dictates that the "attributes" and "relationships" of a
+record be explicitly declared under <code>attributes</code> and <code>relationships</code> properties
+in the JSON.</p>
+<p>The same record in farmOS 2.x looks like:</p>
+<pre><code>{
+  &quot;id&quot;: &quot;9bc49ffd-76e8-4f86-b811-b721cb771327&quot;
+  &quot;type&quot;: &quot;log--observation&quot;,
+  &quot;attributes&quot;: {
+    &quot;name&quot;: &quot;Test observation&quot;,
+    &quot;timestamp&quot;: &quot;1526584271&quot;,
+  },
+  &quot;relationships&quot;: {
+    &quot;asset&quot;: {
+      &quot;data&quot;: [
+        {
+          &quot;type&quot;: &quot;asset--animal&quot;,
+          &quot;id&quot;: &quot;75116e3e-c45e-431d-8b58-1fce6bb315cf&quot;,
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+
+<h3 id="filtering">Filtering</h3>
+<p>The URL query parameters for filtering results have a different syntax in 2.x.
+Refer to the <a href="https://www.drupal.org/docs/core-modules-and-themes/core-modules/jsonapi-module/filtering">Drupal.org JSON:API Filtering documentation</a>
+for more information.</p>
+<p>To illustrate, this is how to filter activity logs by their completed status:</p>
+<ul>
+<li>farmOS 1.x: <code>/log.json?type=activity&amp;done=1</code></li>
+<li>farmOS 2.x: <code>/api/log/activity?filter[status]=complete</code></li>
+</ul>
 <h3 id="logs">Logs</h3>
 <h4 id="type-names">Type names</h4>
 <p>The <code>farm_</code> prefix has been dropped from all log type names. For example, in
