@@ -71,11 +71,21 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#logs">Logs</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#type-names">Type names</a>
+    <li class="toctree-l4"><a class="reference internal" href="#log-types">Log types</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#field-names">Field names</a>
+    <li class="toctree-l4"><a class="reference internal" href="#log-fields">Log fields</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#status">Status</a>
+    <li class="toctree-l4"><a class="reference internal" href="#log-status">Log status</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#assets">Assets</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#asset-types">Asset types</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#asset-fields">Asset fields</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#asset-status">Asset status</a>
     </li>
         </ul>
     </li>
@@ -241,7 +251,7 @@ for more information.</p>
 <li>farmOS 2.x: <code>/api/log/activity?filter[status]=complete</code></li>
 </ul>
 <h3 id="logs">Logs</h3>
-<h4 id="type-names">Type names</h4>
+<h4 id="log-types">Log types</h4>
 <p>The <code>farm_</code> prefix has been dropped from all log type names. For example, in
 farmOS 1.x an Activity log was <code>farm_activity</code>, and in farmOS 2.x it is simply
 <code>activity</code>.</p>
@@ -262,12 +272,12 @@ a single "Lab test" log type.</p>
 <li><code>farm_transplanting</code> -&gt; <code>transplanting</code></li>
 <li><code>farm_water_test</code> -&gt; <code>lab_test</code></li>
 </ul>
-<h4 id="field-names">Field names</h4>
+<h4 id="log-fields">Log fields</h4>
 <p>Log field names are largely unchanged, with a few exceptions (note that <em>new</em>
 fields are not listed here):</p>
 <ul>
 <li><code>date_purchase</code> -&gt; <code>purchase_date</code></li>
-<li><code>done</code> -&gt; <code>status</code> (see "Status" below)</li>
+<li><code>done</code> -&gt; <code>status</code> (see "Log status" below)</li>
 <li><code>files</code> -&gt; <code>file</code></li>
 <li><code>flags</code> -&gt; <code>flag</code></li>
 <li><code>geofield</code> -&gt; <code>geometry</code></li>
@@ -280,11 +290,46 @@ fields are not listed here):</p>
 <li><code>soil_lab</code> -&gt; <code>lab</code></li>
 <li><code>water_lab</code> -&gt; <code>lab</code></li>
 </ul>
-<h4 id="status">Status</h4>
+<h4 id="log-status">Log status</h4>
 <p>In farmOS 1.x, logs had a boolean property called <code>done</code> which was either <code>1</code>
 (done) or <code>0</code> (not done).</p>
 <p>In 2.x, the <code>done</code> property has changed to <code>status</code>, and can be set to either
 <code>done</code> or <code>pending</code>. Additional states may be added in the future.</p>
+<h3 id="assets">Assets</h3>
+<p>Asset records in farmOS 1.x had an entity type of <code>farm_asset</code>. In farmOS 2.x,
+the <code>farm_</code> prefix has been dropped. The entity type is now simply <code>asset</code>.</p>
+<h4 id="asset-types">Asset types</h4>
+<p>Asset type names are largely unchanged, with one notable exception: the
+"Planting" asset type has been renamed to "Plant".</p>
+<p>Below is the full list of asset types in farmOS 1.x and their new names in 2.x:</p>
+<ul>
+<li><code>animal</code> (unchanged)</li>
+<li><code>compost</code> (unchanged)</li>
+<li><code>equipment</code> (unchanged)</li>
+<li><code>group</code> (unchanged)</li>
+<li><code>planting</code> -&gt; <code>plant</code></li>
+<li><code>sensor</code> (unchanged)</li>
+</ul>
+<h4 id="asset-fields">Asset fields</h4>
+<p>Asset field names are largely unchanged, with a few exceptions (note that <em>new</em>
+fields are not listed here):</p>
+<ul>
+<li><code>archived</code> -&gt; <code>status</code> and <code>archived</code> (see "Asset status" below)</li>
+<li><code>flags</code> -&gt; <code>flag</code></li>
+<li><code>files</code> -&gt; <code>file</code></li>
+<li><code>images</code> -&gt; <code>image</code></li>
+<li><code>description</code> -&gt; <code>notes</code></li>
+</ul>
+<h4 id="asset-status">Asset status</h4>
+<p>In farmOS 1.x, assets had a property called <code>archived</code> which was either <code>0</code>,
+which indicated that the asset was active, or a timestamp that recorded when
+the asset was archived.</p>
+<p>In farmOS 2.x, these have been split into two separate fields:</p>
+<ul>
+<li><code>status</code> - The status of the asset (either <code>active</code> or <code>archived</code>).</li>
+<li><code>archived</code> - The timestamp when the asset was archived. This will be empty
+  if the asset is active.</li>
+</ul>
               
             </div>
           </div>
