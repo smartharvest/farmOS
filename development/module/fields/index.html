@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>OAuth - farmOS 2.x</title>
+  <title>Fields - farmOS 2.x</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "OAuth";
-    var mkdocs_page_input_path = "development/module/oauth.md";
+    var mkdocs_page_name = "Fields";
+    var mkdocs_page_input_path = "development/module/fields.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -89,17 +89,17 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="#">Module</a>
     <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../fields/">Fields</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">OAuth</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Fields</a>
     <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#providing-oauth-clients">Providing OAuth Clients</a>
+    <li class="toctree-l3"><a class="reference internal" href="#select-options">Select options</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#examples">Examples:</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#scopes">Scopes</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#client-configuration">Client Configuration</a>
+        </ul>
     </li>
     </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../oauth/">OAuth</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../roles/">Roles</a>
                 </li>
@@ -135,7 +135,7 @@
         
       
     
-    <li>OAuth</li>
+    <li>Fields</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -146,84 +146,88 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="oauth">OAuth</h1>
-<p>The <a href="https://www.drupal.org/project/simple_oauth">Simple OAuth</a> module is used
-to provide an <a href="https://oauth.net/2/">OAuth2 standard</a> authorization server.</p>
-<p>For documentation on using and authenticating with the farmOS API see <a href="/api">API</a>.</p>
-<h2 id="providing-oauth-clients">Providing OAuth Clients</h2>
-<p>OAuth clients are modeled as "Consumer" entities (provided by the
-<a href="https://www.drupal.org/project/consumers">Consumers</a> module. The <code>farm_api</code>
-module provides a default client with <code>client_id = farm</code>. This can be used for
-general usage of the API, but comes with limitations. To create a third party
-integration with farmOS a <code>consumer</code> entity must be created that identifies
-the integration and configures the OAuth Client authorization behavior.</p>
-<h2 id="scopes">Scopes</h2>
-<p>OAuth scopes define different levels of permission. OAuth clients are
-configured with the scopes needed for the purposes of a specific integration.
-With consumers, these scopes are implemented as Drupal Roles. This means that
-OAuth clients interacting with farmOS over the API use the same permission
-system as Users normally using the site.</p>
-<h2 id="client-configuration">Client Configuration</h2>
-<p>Standard Consumer configuration:</p>
+                <h1 id="fields">Fields</h1>
+<h2 id="select-options">Select options</h2>
+<p>Certain fields on assets and logs include a list of options to select from.
+These include:</p>
 <ul>
-<li><code>consumer.label</code> - A label used to identify the third party integration.</li>
-<li><code>consumer.client_id</code> - An optional <code>client_id</code> machine name to identify the
- consumer. The <code>simple_oauth</code> module uses a UUID by default, but a machine
- name makes it easier to identify clients across multiple farmOS servers.</li>
-<li><code>consumer.secret</code> - A <code>client_secret</code> used to secure the OAuth client.</li>
-<li><code>consumer.confidential</code> - A boolean indicating whether the client secret
-  needs to be validated.<ul>
-<li>Most farmOS third party integrations will disable this. Otherwise the
-  same <code>client_secret</code> must be configured on all farmOS servers, or the
-  third party must keep track of a different secret for each server. This
-  challenge is due to the nature of farmOS being a self-hosted application.</li>
+<li><strong>Flags</strong> (on assets and logs)<ul>
+<li>Monitor (<code>monitor</code>)</li>
+<li>Needs review (<code>needs_review</code>)</li>
+<li>Priority (<code>priority</code>)</li>
 </ul>
 </li>
-<li><code>consumer.user_id</code> - When no specific user is authenticated Drupal will use
- this user as the author of all the actions made by this consumer.<ul>
-<li>This is only the case during the <code>Client Credentials</code> authorization flow.</li>
+<li><strong>Lab test type</strong> (on Lab test logs)<ul>
+<li>Soil test (<code>soil</code>)</li>
+<li>Water test (<code>water</code>)</li>
 </ul>
 </li>
-<li><code>consumer.redirect_uri</code> - The URI this client will redirect to when needed.<ul>
-<li>This is used with the Authorization Code authorization flow.</li>
-</ul>
-</li>
-<li><code>consumer.third_party</code> - Enable if the Consumer represents a third party.<ul>
-<li>Users will skip the "grant" step of the authorization flow for first
-  party consumers only.</li>
+<li><strong>ID tag type</strong> (on assets)<ul>
+<li>Electronic ID (<code>eid</code>, on all assets)</li>
+<li>Other (<code>other</code>, on all assets)</li>
+<li>Brand (<code>brand</code>, on Animal assets)</li>
+<li>Ear tag (<code>ear_tag</code>, on Animal assets)</li>
+<li>Leg band (<code>leg_band</code>, on Animal assets)</li>
+<li>Tattoo (<code>tattoo</code>, on Animal assets)</li>
 </ul>
 </li>
 </ul>
-<p>farmOS extends the <code>consumers</code> and <code>simple_oauth</code> modules to provide additional
-authorization options on consumer entities. These additional options make it
-possible to support different third party integration use cases via the same
-OAuth Authorization server. They can be configured via the UI or when creating
-a consumer entity programmatically.</p>
-<p>Authorization options (all are disabled by default):</p>
-<ul>
-<li><code>consumer.grant_user_access</code> - Always grant the authorizing user's access
- to this consumer.<ul>
-<li>This is how the farmOS Field Kit consumer is configured. If this is the
-  only option enabled, then the consumer will only be granted the roles
-  the user has access to.</li>
-</ul>
-</li>
-<li><code>consumer.limit_requested_access</code> - Only grant this consumer the scopes
- requested during authorization.<ul>
-<li>By default, all scopes configured with the consumer will be granted
-  during authorization. This allows users to select which scopes they want
-  to grant the third party during authorization.</li>
-</ul>
-</li>
-<li><code>consumer.limit_user_access</code> - Never grant the consumer more access than
- the authorizing user.<ul>
-<li>It is possible that clients will be configured with different roles
-  than the user that authorizes access to a third party. There are times
-  that this may be intentional, but this setting ensures that consumers
-  will not be granted more access than the authorizing user.</li>
-</ul>
-</li>
-</ul>
+<p>These options are provided as configuration entities by farmOS modules in the
+form of YAML files.</p>
+<p>Existing options can be overridden or removed by editing/deleting the entities
+in the active configuration of the site. (<strong>Warning</strong> changing core types runs
+the risk of conflicting with future farmOS updates).</p>
+<h3 id="examples">Examples:</h3>
+<h4 id="flag">Flag</h4>
+<p>An "Organic" flag can be provided by a module named <code>my_module</code> by creating a
+file called <code>farm_flag.flag.organic.yml</code> in <code>my_module/config/install</code>:</p>
+<pre><code class="language-yaml">langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - my_module
+id: monitor
+label: Monitor
+</code></pre>
+<p>The most important parts are the <code>id</code>, which is a unique machine name for
+the flag, and <code>label</code>, which is the human readable/translatable label that
+will be shown in the select field and other parts of the UI.</p>
+<p>The <code>langcode</code> and <code>status</code> and <code>dependencies</code> are standard configuration
+entity properties. By putting the module's name in "enforced modules" it will
+ensure that the flag is removed when the module is uninstalled.</p>
+<h4 id="lab-test-type">Lab test type</h4>
+<p>The "Lab test" module in farmOS provides a "Soil test" type like this:</p>
+<p><code>lab_test/config/install/farm_lab_test.lab_test_type.soil.yml</code></p>
+<pre><code class="language-yaml">langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - farm_lab_test
+id: soil
+label: Soil test
+</code></pre>
+<h4 id="id-tag-type">ID tag type</h4>
+<p>ID tag types are similar to Flags, in that they have an <code>id</code> and <code>label</code>, but
+they also have an additional property: <code>bundle</code>. This allows the tag type to
+be limited to certain types of assets.</p>
+<p>For example, an "Ear tag" type, provided by the "Animal asset" module, only
+applies to "Animal" assets:</p>
+<p><code>animal/config/install/farm_flag.flag.ear_tag.yml</code></p>
+<pre><code class="language-yaml">langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - farm_animal
+      - farm_id_tag
+id: ear_tag
+label: Ear tag
+bundles:
+  - animal
+</code></pre>
+<p>If you want the tag type to apply to all assets, set <code>bundle: null</code>.</p>
               
             </div>
           </div>
@@ -231,10 +235,10 @@ a consumer entity programmatically.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../roles/" class="btn btn-neutral float-right" title="Roles">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../oauth/" class="btn btn-neutral float-right" title="OAuth">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../fields/" class="btn btn-neutral" title="Fields"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../environment/code/" class="btn btn-neutral" title="Coding standards"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -260,10 +264,10 @@ a consumer entity programmatically.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../fields/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../environment/code/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../roles/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../oauth/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
