@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>Automated tests - farmOS 2.x</title>
+  <title>Documentation - farmOS 2.x</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Automated tests";
-    var mkdocs_page_input_path = "development/environment/tests.md";
+    var mkdocs_page_name = "Documentation";
+    var mkdocs_page_input_path = "development/environment/documentation.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -81,13 +81,13 @@
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../debug/">Debugging</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Automated tests</a>
-    <ul class="current">
-    </ul>
+                <li class="toctree-l2"><a class="reference internal" href="../tests/">Automated tests</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../code/">Coding standards</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../documentation/">Documentation</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Documentation</a>
+    <ul class="current">
+    </ul>
                 </li>
     </ul>
                     </li>
@@ -131,7 +131,7 @@
         
       
     
-    <li>Automated tests</li>
+    <li>Documentation</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -142,17 +142,39 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="automated-tests">Automated tests</h1>
-<p>The farmOS development Docker image comes pre-installed with all the
-dependencies necessary for running automated tests via
-<a href="https://phpunit.de">PHPUnit</a>.</p>
-<p>The following command will run all automated tests provided by farmOS:</p>
-<pre><code>sudo docker exec -it -u www-data farmos_www_1 phpunit --verbose --debug --group farm
+                <h1 id="documentation">Documentation</h1>
+<p>In addition to the code for farmOS 2.x, this repository includes the source files of the
+documentation which is hosted at <a href="http://2x.farmos.org">http://2x.farmos.org</a>.</p>
+<p>It uses <a href="http://www.mkdocs.org">mkdocs</a> to convert simple markdown files into
+static HTML files.</p>
+<p>To get started contributing to the farmOS 2.x documentation, fork 
+<a href="https://github.com/farmOS/farmOS/tree/2.x">farmOS</a> on Github. Then install mkdocs and
+clone this repo:</p>
+<pre><code>$ brew install python                # For OSX users
+$ sudo apt-get install python-pip    # For Debian/Ubuntu users
+$ sudo pip install mkdocs mkdocs-bootstrap mkdocs-bootswatch
+$ git clone https://github.com/farmOS/farmOS.git farmOS
+$ cd farmOS
+$ git checkout 2.x
+$ git remote add sandbox git@github.com:&lt;username&gt;/farmOS.git
+$ mkdocs serve
 </code></pre>
-<p>Tests from other projects/dependencies can be run in a similar fashion. For
-example, the following command will run all tests in the Log module:</p>
-<pre><code>sudo docker exec -it -u www-data farmos_www_1 phpunit --verbose --debug --group Log
+<p>Your local farmOS 2.x documentation site should now be available for browsing:
+http://127.0.0.1:8000/. When you find a typo, an error, unclear or missing
+explanations or instructions, hit ctrl-c, to stop the server, and start editing.
+Find the page you’d like to edit; everything is in the docs/ directory. Make
+your changes, commit and push them, and start a pull request:</p>
+<pre><code>$ git checkout -b fix_typo              # Create a new branch for your changes.
+...                                     # Make your changes.
+$ mkdocs build --clean; mkdocs serve    # Go check your changes.
+$ git diff                              # Make sure there aren’t any unintended changes.
+...
+$ git commit -am "Fixed typo."          # Useful commit message are a good habit.
+$ git push sandbox fix_typo             # Push your new branch up to your Github sandbox.
 </code></pre>
+<p>Visit your fork on Github and start a Pull Request.</p>
+<p>For more information on writing and managing documentation with mkdocs, read the
+official mkdocs documentation: <a href="http://www.mkdocs.org">http://www.mkdocs.org</a></p>
               
             </div>
           </div>
@@ -160,10 +182,10 @@ example, the following command will run all tests in the Log module:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../code/" class="btn btn-neutral float-right" title="Coding standards">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../module/fields/" class="btn btn-neutral float-right" title="Fields">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../debug/" class="btn btn-neutral" title="Debugging"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../code/" class="btn btn-neutral" title="Coding standards"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -189,10 +211,10 @@ example, the following command will run all tests in the Log module:</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../debug/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../code/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../code/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../module/fields/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
