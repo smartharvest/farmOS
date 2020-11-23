@@ -181,9 +181,9 @@ database credentials:</p>
 <p>Open the <code>www</code> directory in your favorite IDE.</p>
 <h2 id="optional">Optional</h2>
 <h3 id="configure-private-filesystem">Configure private filesystem</h3>
-<p>In order to upload files, the following line must be added to
-<code>www/web/sites/default/settings.php</code>:</p>
-<pre><code>$settings['file_private_path'] = 'sites/default/private/files';
+<p>In order to upload files, a private file path must be configured. The following
+line must be added to <code>www/web/sites/default/settings.php</code>:</p>
+<pre><code>$settings['file_private_path'] = '/opt/drupal/web/sites/default/private/files';
 </code></pre>
 <h3 id="configure-debugger">Configure debugger</h3>
 <p>See <a href="/development/environment/debug">Debugging</a>.</p>
