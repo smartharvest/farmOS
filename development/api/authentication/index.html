@@ -14,7 +14,7 @@
     
     
       
-        <title>Roles - farmOS 2.x Docs</title>
+        <title>Authentication - farmOS 2.x Docs</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#roles" class="md-skip">
+        <a href="#authentication" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Roles
+              Authentication
             
           </span>
         </div>
@@ -185,10 +185,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" >
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" checked>
     <label class="md-nav__link" for="nav-1-1">
       API
       <span class="md-nav__icon md-icon"></span>
@@ -207,95 +209,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../api/" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../api/authentication/" class="md-nav__link">
-      Authentication
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../api/changes/" class="md-nav__link">
-      Changes
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" checked>
-    <label class="md-nav__link" for="nav-1-2">
-      Module
-      <span class="md-nav__icon md-icon"></span>
-    </label>
-    <nav class="md-nav" aria-label="Module" data-md-level="2">
-      <label class="md-nav__title" for="nav-1-2">
-        <span class="md-nav__icon md-icon"></span>
-        Module
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../" class="md-nav__link">
-      Getting started
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../fields/" class="md-nav__link">
-      Fields
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../oauth/" class="md-nav__link">
-      OAuth
+      Introduction
     </a>
   </li>
 
@@ -315,12 +230,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Roles
+        Authentication
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Roles
+      Authentication
     </a>
     
       
@@ -337,31 +252,66 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#managed-roles" class="md-nav__link">
-    Managed Roles
+  <a href="#client-libraries" class="md-nav__link">
+    Client Libraries
   </a>
   
-    <nav class="md-nav" aria-label="Managed Roles">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth2-bearer-tokens" class="md-nav__link">
+    OAuth2 Bearer Tokens
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth2-details" class="md-nav__link">
+    OAuth2 Details
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth2 Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-a-managed-role" class="md-nav__link">
-    Creating a managed role
+  <a href="#scopes" class="md-nav__link">
+    Scopes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#providing-permissions-for-managed-roles" class="md-nav__link">
-    Providing permissions for managed roles
+  <a href="#clients" class="md-nav__link">
+    Clients
   </a>
   
-    <nav class="md-nav" aria-label="Providing permissions for managed roles">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization-flows" class="md-nav__link">
+    Authorization Flows
+  </a>
+  
+    <nav class="md-nav" aria-label="Authorization Flows">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#permission-callbacks" class="md-nav__link">
-    Permission callbacks
+  <a href="#authorization-code-grant" class="md-nav__link">
+    Authorization Code Grant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-credentials-grant" class="md-nav__link">
+    Password Credentials Grant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refreshing-tokens" class="md-nav__link">
+    Refreshing Tokens
   </a>
   
 </li>
@@ -380,6 +330,91 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../changes/" class="md-nav__link">
+      Changes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" >
+    <label class="md-nav__link" for="nav-1-2">
+      Module
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Module" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-2">
+        <span class="md-nav__icon md-icon"></span>
+        Module
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../module/" class="md-nav__link">
+      Getting started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../module/fields/" class="md-nav__link">
+      Fields
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../module/oauth/" class="md-nav__link">
+      OAuth
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../module/roles/" class="md-nav__link">
+      Roles
+    </a>
   </li>
 
         
@@ -587,31 +622,66 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#managed-roles" class="md-nav__link">
-    Managed Roles
+  <a href="#client-libraries" class="md-nav__link">
+    Client Libraries
   </a>
   
-    <nav class="md-nav" aria-label="Managed Roles">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth2-bearer-tokens" class="md-nav__link">
+    OAuth2 Bearer Tokens
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth2-details" class="md-nav__link">
+    OAuth2 Details
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth2 Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#creating-a-managed-role" class="md-nav__link">
-    Creating a managed role
+  <a href="#scopes" class="md-nav__link">
+    Scopes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#providing-permissions-for-managed-roles" class="md-nav__link">
-    Providing permissions for managed roles
+  <a href="#clients" class="md-nav__link">
+    Clients
   </a>
   
-    <nav class="md-nav" aria-label="Providing permissions for managed roles">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization-flows" class="md-nav__link">
+    Authorization Flows
+  </a>
+  
+    <nav class="md-nav" aria-label="Authorization Flows">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#permission-callbacks" class="md-nav__link">
-    Permission callbacks
+  <a href="#authorization-code-grant" class="md-nav__link">
+    Authorization Code Grant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-credentials-grant" class="md-nav__link">
+    Password Credentials Grant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refreshing-tokens" class="md-nav__link">
+    Refreshing Tokens
   </a>
   
 </li>
@@ -639,174 +709,124 @@
               
                 
                 
-                <h1 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link">&para;</a></h1>
-<p>Roles are groups of permissions that can be assigned to users to grant them
-granular access to data and features in farmOS.</p>
-<p>Module developers can define new roles, and specify which permissions they
-should include. farmOS also builds on top of Drupal's role and permission
-system to provide a concept of "Managed Roles".</p>
-<h2 id="managed-roles">Managed Roles<a class="headerlink" href="#managed-roles" title="Permanent link">&para;</a></h2>
-<p>The farmOS Access module provides methods to create user roles with permissions
-that are managed for the purposes of farmOS. These roles cannot be modified
-from the Admin Permissions UI. Instead, these roles allow permissions to be
-provided by other modules that want to provide sensible defaults for common
-farmOS roles.</p>
-<h3 id="creating-a-managed-role">Creating a managed role<a class="headerlink" href="#creating-a-managed-role" title="Permanent link">&para;</a></h3>
-<p>User roles are provided as Drupal Configuration Entities. Managed roles are
-provided in the same way the only difference being that they include
-additional third party settings the farmOS Access module uses to build
-managed permissions. The <code>user.role.*.third_party.farm_acccess</code> schema
-defines the structure of these settings.</p>
-<ul>
-<li><code>access</code>: An optional array of default access permissions.<ul>
-<li><code>config</code>: Boolean that specifies whether the role should have access to
-  configuration. Only grant this to trusted roles.</li>
-<li><code>entity</code>: Access permissions relating to entities.<ul>
-<li><code>view all</code>: Boolean that specifies the role should have access to view
-all bundles of all entity types.</li>
-<li><code>create all</code>: Boolean that specifies the role should have access to
-create all bundles of all entity types.</li>
-<li><code>update all</code>: Boolean that specifies the role should have access to
-update all bundles of all entity types.</li>
-<li><code>delete all</code>: Boolean that specifies the role should have access to
-delete all bundles of all entity types.</li>
-<li><code>type</code>: Access permissions for specific entity types.<ul>
-<li><code>{entity_type}</code>: The id of the entity type. eg: <code>log</code>,<code>asset</code>,
-<code>taxonomy_term</code>, etc.<ul>
-<li><code>{operation}</code>: The operation to grant bundles of this entity
-type. Eg: <code>create</code>, <code>view any</code>, <code>view own</code>, <code>delete any</code>,
-<code>delete own</code>, etc.<ul>
-<li><code>{bundle}</code>: The id of the entity type bundle or <code>all</code> to
-grant the operation permission to all bundles of the entity
-type.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>Settings used for the Manager role (full access to all entities + access to
-configuration):</p>
-<pre><code class="language-yaml"># user.role.farm_manager.yml
-... standard role config ...
-third_party_settings:
-  farm_role:
-    access:
-      config: true
-      entity:
-        view all: true
-        create all: true
-        update all: true
-        delete all: true
+                <h1 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h1>
+<p>farmOS includes an OAuth2 Authorization server for providing 1st and 3rd party
+clients access to the farmOS API. Rather than using a user's username and
+password to both <em>authorize and authenticate</em> a request, OAuth2 requires
+users to complete an <em>authorization flow</em> that generates an <code>access_token</code>
+to be used for authentication. Access tokens are provided to both 1st and
+3rd party clients who wish to access the server's protected resources. Clients
+store the <code>access token</code> instead of the user's credentials, which makes it a
+more secure authentication method.</p>
+<p>Read more about the <a href="https://oauth.net/2/">OAuth 2.0 standards</a>.</p>
+<h2 id="client-libraries">Client Libraries<a class="headerlink" href="#client-libraries" title="Permanent link">&para;</a></h2>
+<p>The <a href="https://github.com/farmOS/farmOS.py">farmOS.py</a> and
+<a href="https://github.com/farmOS/farmOS.js">farmOS.js</a> client libraries use the
+OAuth2 protocol to interact with the farmOS API.</p>
+<h2 id="oauth2-bearer-tokens">OAuth2 Bearer Tokens<a class="headerlink" href="#oauth2-bearer-tokens" title="Permanent link">&para;</a></h2>
+<p>Once you have an OAuth2 token, you can authenticate requests to the farmOS
+server by including an <code>Authentication: Bearer {access_token}</code> header.</p>
+<h2 id="oauth2-details">OAuth2 Details<a class="headerlink" href="#oauth2-details" title="Permanent link">&para;</a></h2>
+<p>The OAuth protocol defines a process where users <em>authorize</em> 1st and 3rd
+party <em>clients</em> with <em>scoped</em> access to data on the server. The following
+describes the details necessary for using OAuth2 authorization with a farmOS
+server.</p>
+<h3 id="scopes">Scopes<a class="headerlink" href="#scopes" title="Permanent link">&para;</a></h3>
+<p>OAuth Scopes define different levels of permission. The farmOS server
+implements scopes as roles associated with OAuth clients. This means that users
+will authorize clients with roles that determine how much access they have
+to data on the server.</p>
+<h3 id="clients">Clients<a class="headerlink" href="#clients" title="Permanent link">&para;</a></h3>
+<p>An OAuth Client represents a 1st or 3rd party integration with the farmOS
+server. Clients are uniquely identified by a <code>client_id</code> and are
+configured to use different <code>scopes</code>.</p>
+<p>The core <code>farm_api</code> module provides a default client with
+<code>client_id = farm</code>. If you are writing a script that communicates with <em>your</em>
+farmOS server via the API, you should use this client to authorize access and
+generate an <code>access_token</code> for authentication.</p>
+<p>If you are creating a third party integration with farmOS, see the
+<a href="/development/module/oauth">OAuth</a> page of the farmOS module development docs
+for steps to create an OAuth Client.</p>
+<h3 id="authorization-flows">Authorization Flows<a class="headerlink" href="#authorization-flows" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://oauth.net/2/">OAuth 2.0 standards</a> outline 5
+<a href="https://oauth.net/2/grant-types/">Oauth2 Grant Types</a> to be used in an OAuth2
+Authorization Flow - They are the <em>Authorization Code, Implicit, Password
+Credentials, Client Credentials</em> and <em>Refresh Token</em> Grants. The
+<a href="#authorization-code-grant">Authorization Code</a> and
+<a href="#refreshing-tokens">Refresh Token</a> grants are the only Authorization Flows
+recommended by farmOS for use with 3rd party clients.</p>
+<p><strong>NOTE:</strong> Only use the <strong>Password Grant</strong> if the client can be trusted with a
+farmOS username and password (this is considered <em>1st party</em>). The
+<strong>Client Credentials Grant</strong> is often used for machine authentication not
+associated with a user account. The client credentials grant should only be
+used if a <code>client_secret</code> can be kept secret. If connecting to multiple
+farmOS servers, each server should use a different secret. This is
+challenging due to the nature of farmOS being a self-hosted application.</p>
+<h4 id="authorization-code-grant">Authorization Code Grant<a class="headerlink" href="#authorization-code-grant" title="Permanent link">&para;</a></h4>
+<p>The Authorization Code Grant is most popular for 3rd party client
+authorization.</p>
+<p>Requesting resources is a four step process:</p>
+<p><strong>First</strong>: the client sends a request to the farmOS server <code>/oauth/authorize</code>
+endpoint requesting an <code>Authorization Code</code>. The user logs in and authorizes
+the client to have the OAuth Scopes it is requesting.</p>
+<pre><code>Copy this link to browser -
+http://localhost/oauth/authorize?response_type=code&amp;client_id=farmos_development&amp;scope=user_access&amp;redirect_uri=http://localhost/api/authorized&amp;state=p4W8P5f7gJCIDbC1Mv78zHhlpJOidy
 </code></pre>
-<p>Example settings to define a "Harvester" role with these limitations:</p>
-<ul>
-<li>View all log entities.</li>
-<li>Only create harvest logs, update harvest logs, and delete own harvest logs.</li>
-<li>View all asset entities.</li>
-<li>Only update planting assets.</li>
-<li>View, edit and delete any taxonomy_term entity.</li>
-</ul>
-<pre><code class="language-yaml"># user.role.farm_harvester.yml
-... standard role config ...
-third_party_settings:
-  farm_role:
-    access:
-      entity:
-        view all: true
-        type:
-          log:
-            create:
-              - harvest
-            update any:
-              - harvest
-            delete own:
-              - harvest
-          asset:
-            update any:
-              - planting
-          taxonomy_term:
-            edit:
-              - all
-            delete:
-              - all
+<p><strong>Second</strong>: after the user accepts, the server redirects
+to the <code>redirect_uri</code> with an authorization <code>code</code> and <code>state</code> in the query
+parameters.</p>
+<pre><code>Example redirect url from server:
+http://localhost/api/authorized?code=9eb9442c7a2b011fd59617635cca5421cd089943&amp;state=p4W8P5f7gJCIDbC1Mv78zHhlpJOidy
 </code></pre>
-<h3 id="providing-permissions-for-managed-roles">Providing permissions for managed roles<a class="headerlink" href="#providing-permissions-for-managed-roles" title="Permanent link">&para;</a></h3>
-<p>Modules can define sensible permissions to any managed roles. These permissions
-are provided by creating a <code>ManagedRolePermissions</code> plugin in the
-<code>module.managed_role_permissions.yml</code> file. The following keys can be provided:</p>
-<ul>
-<li><code>default_permissions</code>: A list of permissions that will be added to <em>all</em>
-  managed roles.</li>
-<li><code>config_permissions</code>: A list of permissions that will be added to managed
-  roles that have access to configuration (<code>config: true</code>).</li>
-<li><code>permission_callbacks</code>: A list of callbacks in controller notation that
-  return an array of permissions to add to managed roles. Callbacks are
-  provided a <code>Role</code> object so that permissions can be applied conditionally
-  based on the managed role's settings.</li>
-</ul>
-<p>As an example, the <code>farm_role</code> module provides the following permissions:</p>
-<pre><code class="language-yaml"># farm_role.managed_role_permissions.yml
-farm_role:
-  default_permissions:
-    - access content
-    - access administration pages
-    - access user profiles
-    - access taxonomy overview
-  config_permissions:
-    - administer taxonomy
+<p><strong>Third</strong>: copy the <code>code</code> and <code>state</code> from the URL into the body of a POST
+request. The <code>grant_type</code>, <code>client_id</code>, <code>client_secret</code> and <code>redirect_uri</code> must
+also be included in the POST body. The client makes a POST request to the
+<code>/oauth/token</code> endpoint to retrieve an <code>access_token</code> and <code>refresh_token</code>.</p>
+<pre><code>foo@bar:~$ curl -X POST -d "grant_type=authorization_code&amp;code=ae4d1381cc67def1c10dc88a19af6ac30d7b5959&amp;client_id=farmos_development&amp;redirect_uri=http://localhost/api/authorized" http://localhost/oauth/token
+{"access_token":"3f9212c4a6656f1cd1304e47307927a7c224abb0","expires_in":"10","token_type":"Bearer","scope":"user_access","refresh_token":"292810b04d688bfb5c3cee28e45637ec8ef1dd9e"}
 </code></pre>
-<h4 id="permission-callbacks">Permission callbacks<a class="headerlink" href="#permission-callbacks" title="Permanent link">&para;</a></h4>
-<p>Example that adds permissions conditionally based on the role name and settings:</p>
-<p>Plugin definition:</p>
-<pre><code class="language-yaml"># my_module.managed_role_permissions.yml
-my_module:
-  permission_callbacks:
-    - Drupal\my_module\CustomPermissions::permissions
+<p><strong>Fourth</strong>: the client sends the access token in the request header to access protected
+resources. The header is an Authorization header with a Bearer token:
+ <code>Authorization: Bearer access_token</code></p>
+<pre><code>foo@bar:~$ curl --header "Authorization: Bearer b872daf5827a75495c8194c6bfa4f90cf46c143e" http://localhost/farm.json
+{"name":"farmos-server","url":"http:\/\/localhost","api_version":"1.1","user":{"uid":"1","name":"admin", ....
 </code></pre>
-<p>Example implementation of a <code>permission_callback</code>:</p>
-<pre><code class="language-php">&lt;?php
-
-# my_module/src/CustomPermissions.php
-
-namespace Drupal\my_module;
-
-use Drupal\user\RoleInterface;
-
-/**
- * Example custom permission callback.
- */
-class CustomPermissions {
-
-  public function permissions(RoleInterface $role) {
-
-    // Array of permissions to return.
-    $perms = [];
-
-    // Add permissions based on role name.
-    if ($role-&gt;id() == 'farm_manager') {
-      $perms = 'my manager permission';
-    }
-
-    // Get the farm_role third party settings from the Role entity.
-    $access_settings = $role-&gt;getThirdPartySetting('farm_role', 'access');
-    $entity_settings = $access_settings['entity'] ?: [];
-
-    // Only add permissions if `update all` and `delete all` are true.
-    if (!empty($entity_settings['update all'] &amp;&amp; $entity_settings['delete all'])) {
-      $perms[] = 'recover all permission';
-    }
-
-    // Return array of permissions.
-    return $perms;
-  }
-}
+<h4 id="password-credentials-grant">Password Credentials Grant<a class="headerlink" href="#password-credentials-grant" title="Permanent link">&para;</a></h4>
+<p><strong>NOTE:</strong> Only use the <strong>Password Grant</strong> if the client can be trusted with a
+farmOS username and password (this is considered <em>1st party</em>).</p>
+<p>The Password Credentials Grant uses a farmOS <code>username</code> and <code>password</code> to
+retrieve an <code>access_token</code> and <code>refresh_token</code> in one step. For the user, this
+is the simplest type of <em>authorization.</em> Because the client can be trusted with
+their farmOS Credentials, a users <code>username</code> and <code>password</code> can be collected
+directly into a login form within the client application. These credentials are
+then used (not stored) to request tokens which are used for <em>authentication</em>
+with the farmOS server and retrieving data.</p>
+<p>Requesting protected resources is a two step process:</p>
+<p><strong>First</strong>, the client sends a POST request to the farmOS server <code>/oauth/token</code>
+endpoint with <code>grant_type</code> set to <code>password</code> and a <code>username</code> and <code>password</code>
+included in the request body.</p>
+<pre><code>$ curl -X POST -d "grant_type=password&amp;username=username&amp;password=test&amp;client_id=farm&amp;scope=user_access" http://localhost/oauth/token
+{"access_token":"e69c60dea3f5c59c95863928fa6fb860d3506fe9","expires_in":"300","token_type":"Bearer","scope":"user_access","refresh_token":"cead7d46d18d74daea83f114bc0b512ec4cc31c3"}
 </code></pre>
+<p><strong>second</strong>, the client sends the <code>access_token</code> in the request header to access protected
+resources. The header is an Authorization header with a Bearer token:
+ <code>Authorization: Bearer access_token</code></p>
+<pre><code>foo@bar:~$ curl --header "Authorization: Bearer e69c60dea3f5c59c95863928fa6fb860d3506fe9" http://localhost/farm.json
+{"name":"farmos-server","url":"http:\/\/localhost","api_version":"1.1","user":{"uid":"1","name":"admin", ....
+</code></pre>
+<h4 id="refreshing-tokens">Refreshing Tokens<a class="headerlink" href="#refreshing-tokens" title="Permanent link">&para;</a></h4>
+<p>The <code>refresh_token</code> can be used to retrieve a new <code>access_token</code> if the token
+has expired.</p>
+<p>It is a one step process:</p>
+<p>The client sends an authenticated request to the <code>/oauth/token</code>endpoint with
+<code>grant_type</code> set to <code>refresh_token</code> and includes the <code>refresh_token</code>,
+<code>client_id</code> and <code>client_secret</code> in the request body.</p>
+<pre><code>foo@bar:~$ curl -X POST -H 'Authorization: Bearer ad52c04d26c1002084501d28b59196996f0bd93f' -d 'refresh_token=52e7a0e12e8ddd08b155b3b3ee385687fef01664&amp;grant_type=refresh_token&amp;client_id=farmos_api_client&amp;client_secret=client_secret' http://localhost/oauth/token
+{"access_token":"acdbfabb736e42aa301b50fdda95d6b7fd3e7e14","expires_in":"300","token_type":"Bearer","scope":"user_access","refresh_token":"b73f4744840498a26f43447d8cf755238bfd391a"}
+</code></pre>
+<p>The server responds with an <code>access_token</code> and <code>refresh_token</code> that can be used
+in future requests. The previous <code>access_token</code> and <code>refresh_token</code> will no
+longer work.</p>
                 
               
               
@@ -825,7 +845,7 @@ class CustomPermissions {
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../oauth/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -834,19 +854,19 @@ class CustomPermissions {
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                OAuth
+                Introduction
               </div>
             </div>
           </a>
         
         
-          <a href="../../environment/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../changes/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Getting started
+                Changes
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
