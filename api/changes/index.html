@@ -100,6 +100,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#taxonomies">Taxonomies</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -131,6 +133,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="#">Module</a>
     <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../development/module/">Getting started</a>
+                </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../development/module/fields/">Fields</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../development/module/oauth/">OAuth</a>
@@ -419,6 +423,15 @@ the asset was archived.</p>
 <li><code>status</code> - The status of the asset (either <code>active</code> or <code>archived</code>).</li>
 <li><code>archived</code> - The timestamp when the asset was archived. This will be empty
   if the asset is active.</li>
+</ul>
+<h3 id="taxonomies">Taxonomies</h3>
+<p>farmOS 2.x continues to use Drupal's core <code>taxonomy_term</code> entities to represent
+vocabularies of terms. The vocabulary machine names have changed, to drop the
+<code>farm_</code> prefix, and to standardize plurality.</p>
+<ul>
+<li><code>farm_log_categories</code> -&gt; <code>log_category</code></li>
+<li><code>farm_materials</code> -&gt; <code>material</code></li>
+<li><code>farm_season</code> -&gt; <code>season</code></li>
 </ul>
               
             </div>
