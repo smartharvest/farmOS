@@ -605,7 +605,7 @@
 environment variable must be used to configure XDebug's <code>remote_host</code> setting
 with the Docker container's "Gateway" IP address.</p>
 <p>With the containers running, this command will print the gateway IP:</p>
-<pre><code>sudo docker inspect farmos_www_1 | grep -o '"Gateway": ".*\..*\..*\..*"'
+<pre><code>docker inspect farmos_www_1 | grep -o '"Gateway": ".*\..*\..*\..*"'
 </code></pre>
 <p>Edit <code>docker-compose.yml</code> and enter the gateway IP in the <code>XDEBUG_CONFIG</code>
 environment variable. For example:</p>
@@ -613,7 +613,7 @@ environment variable. For example:</p>
   XDEBUG_CONFIG: remote_host=192.168.128.1
 </code></pre>
 <p>Restart the Docker containers for this change to take affect.</p>
-<pre><code>sudo docker-compose restart
+<pre><code>docker-compose restart
 </code></pre>
 <p><strong>Note</strong>: If the Docker containers are removed and recreated, the IP address
 may change, and you will need to repeat these steps to reconfigure it.</p>
