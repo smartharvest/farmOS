@@ -493,6 +493,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#farm-info-endpoint" class="md-nav__link">
     Farm info endpoint
   </a>
@@ -1048,6 +1055,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#farm-info-endpoint" class="md-nav__link">
     Farm info endpoint
   </a>
@@ -1211,6 +1225,16 @@ about all available resources. The root endpoint for schema information is
 <code>/api/schema</code>.</p>
 <p>In farmOS 1.x, the <code>/farm.json</code> endpoint provided similar information in the
 <code>resources</code> property. This has been removed in favor of JSON Schema.</p>
+<h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h3>
+<p>See <a href="/development/api/authentication">API Authentication</a> for more information
+about authorizing and authenticating farmOS 2.x API requests.</p>
+<p>Notable changes from 1.x include:</p>
+<ul>
+<li>The new authorization URL is <code>/oauth/authorize</code> (was <code>/oauth2/authorize</code>).</li>
+<li>The new token URL is <code>/oauth/token</code> (was <code>/oauth2/token</code>).</li>
+<li>Requests should use <code>Content-Type: application/vnd.api+json</code> (was
+  <code>Content-Type: application/json</code>).</li>
+</ul>
 <h3 id="farm-info-endpoint">Farm info endpoint<a class="headerlink" href="#farm-info-endpoint" title="Permanent link">&para;</a></h3>
 <p>In farmOS 1.x, an informational API endpoint was provided at <code>/farm.json</code>. This
 included various information describing the farmOS server configuration,
