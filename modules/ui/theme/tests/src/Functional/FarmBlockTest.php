@@ -5,7 +5,7 @@ namespace Drupal\Tests\farm_ui_theme\Functional;
 use Drupal\Tests\farm\Functional\FarmBrowserTestBase;
 
 /**
- * Tests the "Powered by farmOS" block.
+ * Tests the "Powered by SmartHarvest" block.
  *
  * @group farm
  */
@@ -19,10 +19,10 @@ class FarmBlockTest extends FarmBrowserTestBase {
   ];
 
   /**
-   * Test that the "Powered by farmOS" block is visible.
+   * Test that the "Powered by SmartHarvest" block is visible.
    */
   public function testFarmBlock() {
-    $this->assertSession()->pageTextContains('Powered by farmOS');
+    $this->assertSession()->pageTextContains('Powered by SmartHarvest');
   }
 
 }

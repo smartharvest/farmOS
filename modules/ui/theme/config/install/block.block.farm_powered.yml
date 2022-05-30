@@ -13,7 +13,7 @@ provider: null
 plugin: farm_powered_by_block
 settings:
   id: farm_powered_by_block
-  label: 'Powered by farmOS'
+  label: "Powered by SmartHarvest"
   provider: farm
-  label_display: '0'
-visibility: {  }
+  label_display: "0"
+visibility: {}
